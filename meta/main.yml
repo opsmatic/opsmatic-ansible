@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Opsmatic
-  description: Role to install Opsmatic Agent and CLI Utilitiy
+  description: Role to install Opsmatic Agent
   company: Opsmatic Inc.
   license: MIT
   min_ansible_version: 1.2
