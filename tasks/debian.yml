@@ -1,0 +1,12 @@
+---
+- name: Add apt HTTPS transport support
+  apt: name=apt-transport-https state=present
+
+- name: Add Package Cloud repository key
+  apt_key: url=https://packagecloud.io/gpg.key state=present
+
+- name: Add Opsmatic repository (hosted at Package Cloud)
+  apt_repository: repo='deb https://packagecloud.io/opsmatic/public/any/ any main' state=present update_cache=yes
+
+- name: Install Opsmatic Agent package
+  apt: name=opsmatic-agent state=present

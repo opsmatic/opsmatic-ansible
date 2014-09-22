@@ -1,0 +1,9 @@
+---
+- name: Add Package Cloud repository key
+  copy: src=packagecloud_yum_gpg.key dest=/etc/pki/rpm-gpg/RPM-GPG-KEY-opsmatic_packagecloud owner=root group=root mode=0644
+
+- name: Add Opsmatic repository (hosted at Package Cloud)
+  copy: src=yum_opsmatic_public.repo dest=/etc/yum.repos.d/opsmatic_public.repo owner=root group=root mode=0644
+
+- name: Install Opsmatic Agent package
+  yum: name=opsmatic-agent state=present
