@@ -1,3 +1,4 @@
 ---
 opsmatic_auth_http: "https://api.opsmatic.com"
 opsmatic_integration_token: ""
+opsmatic_install_cli: true

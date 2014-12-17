@@ -1,0 +1,7 @@
+- name: Install Opsmatic CLI apt package
+  apt: name=opsmatic-cli state=present
+  when: ansible_os_family == "Debian"
+
+- name: Install Opsmatic CLI yum package
+  yum: name=opsmatic-cli state=present
+  when: ansible_os_family == "RedHat"
