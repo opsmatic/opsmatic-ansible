@@ -7,13 +7,10 @@
 - include: rhel.yml
   when: ansible_os_family == "RedHat"
 
-- name: Test if this is the first installation
-  stat: path=/var/db/opsmatic-agent/data
-  register: opsmatic_data
+- name: create global config
+  template: src=opsmatic-global.j2 dest=/etc/default/opsmatic-global
 
-- name: Perform initial agent configuration
-  command: /usr/bin/config-opsmatic-agent --token={{ opsmatic_integration_token }} --auth_http={{ opsmatic_auth_http }}
-  when: opsmatic_data.stat.isdir is not defined
+- include: agent.yml
 
-- name: Enable and start the Opsmatic Agent
-  service: name=opsmatic-agent state=started
+- include: cli.yml
+  when: opsmatic_install_cli == true
