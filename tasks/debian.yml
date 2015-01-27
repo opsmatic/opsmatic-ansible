@@ -10,3 +10,8 @@
 
 - name: Install Opsmatic Agent package
   apt: name=opsmatic-agent state=present
+  when: ansible_distribution == "Ubuntu"
+
+- name: Install Opsmatic Agent package
+  apt: name=opsmatic-agent-sysv state=present
+  when: ansible_distribution == "Debian"
