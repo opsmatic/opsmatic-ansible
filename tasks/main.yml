@@ -10,7 +10,17 @@
 - name: create global config
   template: src=opsmatic-global.j2 dest=/etc/default/opsmatic-global
 
+- name: create opsmatic-agent.conf
+  template: src=opsmatic-agent.conf.j2 dest=/etc/opsmatic-agent.conf
+
 - include: agent.yml
+
+- name: ensure /external.d directory exists
+  file: path=/var/db/opsmatic-agent/external.d state=directory
+
+- name: create json for FIM monitoring
+  template: src=file-integrity-monitoring.json.j2 dest=/var/db/opsmatic-agent/external.d/file-integrity-monitoring.json
+  when: opsmatic_enable_file_monitoring == true
 
 - include: cli.yml
   when: opsmatic_install_cli == true

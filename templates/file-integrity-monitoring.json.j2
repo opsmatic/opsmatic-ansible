@@ -1,0 +1,10 @@
+{
+  "files": [
+  {% if opsmatic_file_monitor_list is defined %}
+   {% for filename in opsmatic_file_monitor_list %}
+    { "path": "{{filename}}" }{% if not loop.last %},
+    {% endif %}
+    {% endfor %}      
+  {% endif %}
+  ]
+}
