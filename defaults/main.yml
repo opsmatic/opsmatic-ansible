@@ -2,3 +2,6 @@
 opsmatic_auth_http: "https://api.opsmatic.com"
 opsmatic_integration_token: ""
 opsmatic_install_cli: true
+opsmatic_host_aslias: ""
+opsmatic_groups: 
+opsmatic_file_monitor_list: 
