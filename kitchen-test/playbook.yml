@@ -1,0 +1,4 @@
+- hosts: all
+
+  roles:
+     - { role: opsmatic.opsmatic, opsmatic_integration_token: 115cedfd-107d-41be-bb81-f17afeb77686 }

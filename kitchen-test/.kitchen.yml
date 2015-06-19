@@ -1,0 +1,35 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: ansible_playbook
+  roles_path: ../
+  playbook: playbook.yml
+  hosts: localhost
+  require_ansible_repo: true
+  ansible_verbose: true
+  # ansible_version: 1.8.2
+  ansible_yum_repo: http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+
+platforms:
+  - name: opscode-ubuntu1404
+    driver_plugin: vagrant
+    driver_config:
+      box: opscode-ubuntu1404
+      box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box 
+  - name: opscode-centos66
+    driver_plugin: vagrant
+    driver_config:
+      box: opscode-centos-6.6 
+      box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-6.6_chef-provisionerless.box
+  - name: opscode-debian77
+    driver_plugin: vagrant
+    driver_config:
+      box: opscode-debian-7.7
+      box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_debian-7.7_chef-provisionerless.box
+
+suites:
+  - name: default
+    run_list:
+    attributes:
