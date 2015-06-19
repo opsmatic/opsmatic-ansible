@@ -1,0 +1,6 @@
+.librarian
+.bundle
+.kitchen
+vendor
+Gemfile.lock
+Ansiblefile.lock
