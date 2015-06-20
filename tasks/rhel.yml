@@ -5,5 +5,14 @@
 - name: Add Opsmatic repository (hosted at Package Cloud)
   copy: src=yum_opsmatic_public.repo dest=/etc/yum.repos.d/opsmatic_public.repo owner=root group=root mode=0644
 
-- name: Install Opsmatic Agent package
+- shell: "/bin/test `which systemctl 2>/dev/null | wc -l` -eq 1"
+  register: has_systemctl
+  ignore_errors: True
+
+- name: Install Opsmatic Agent package for Upstart
   yum: name=opsmatic-agent state=present
+  when: has_systemctl|failed
+
+- name: Install Opsmatic Agent package for Systemd
+  yum: name=opsmatic-agent-systemd state=present
+  when: has_systemctl|success

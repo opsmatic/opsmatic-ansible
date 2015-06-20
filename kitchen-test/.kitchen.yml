@@ -9,7 +9,6 @@ provisioner:
   hosts: localhost
   require_ansible_repo: true
   ansible_verbose: true
-  # ansible_version: 1.8.2
   ansible_yum_repo: http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 
 platforms:
