@@ -23,7 +23,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - opsmatic
+         - opsmatic.opsmatic
 
 Example /default/main.yml
 -------------------------
