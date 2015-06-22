@@ -40,6 +40,19 @@ opsmatic_groups: ['groupone','grouptwo','groupthree', 'yet-another-group']
 opsmatic_file_monitor_list: ['/etc/nginx/nginx.conf','/etc/ssh/sshd_config','/etc/hosts']
 ```
 
+Testing
+-------
+
+```
+bundle install --path vendor/bundle
+bundle exec kitchen list
+bundle exec kitchen test
+
+# for development, shorter cycle
+bundle exec kitchen converge <platform>
+bundle exec kitchen verify <platform>
+```
+
 
 License
 -------
